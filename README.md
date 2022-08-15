@@ -10,7 +10,23 @@ Pewlett-Hackard will soon have a significant number of employees retiring at onc
 SELECT * FROM public.retirement_info 
 ```
 
-The following list of employees is our first result: 
+The following list of employees is our cleaned first result: 
 
 ![""](Photos/table1.PNG)
+
+
+-- Next, we needed to determine the counts for each of the titles held by the upcoming retirees. First we created a table containing all employee titles named retirement_titles. Next, we used a DISTINCT-ON query to create a table of only unique employee titles called unique_titles. Finally, when we run:
+
+```
+-- Make the retiring_titles table
+SELECT COUNT(first_name), ut.title
+INTO retiring_titles
+FROM unique_titles as ut 
+GROUP BY (ut.title)
+ORDER BY COUNT(first_name) DESC;
+```
+
+The following table counting the number of employees that will be leaving by their titles is produced:
+
+![""](Photos/table2.PNG)
 
