@@ -12,3 +12,5 @@ SELECT * FROM public.retirement_info
 
 The following list of employees is our first result: 
 
+![""](Photos/table1.PNG)
+
