@@ -14,6 +14,7 @@ The following list of employees is our cleaned first result:
 
 ![""](Photos/table1.PNG)
 
+---------------------------------------------------------------------------------------------------------------------------------------
 
 -- Next, we needed to determine the counts for each of the titles held by the upcoming retirees. First we created a table containing all employee titles named retirement_titles. Next, we used a DISTINCT-ON query to create a table of only unique employee titles called unique_titles. Finally, when we run:
 
@@ -30,6 +31,7 @@ The following table counting the number of employees that will be leaving by the
 
 ![""](Photos/table2.PNG)
 
+------------------------------------------------------------------------------------------------------------------------------------------
 
 -- Next, we needed to determine how many of PH's current (not retiring) employees are eligible for a mentorship program to replace lost labor. To do this we can first check how many employees are currently at PH by running:
 
@@ -43,6 +45,29 @@ FROM retirement_info
         WHERE dept_emp.to_date = ('9999-01-01');
 ```
 
-Which return the table:
+Which returns the table:
 
+![""](Photos/table3.PNG)
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Lastly, to determine how many out of the current employees are eligible for a mentorship we can run:
+
+```
+-- Find the employees who are eligible for a mentorship
+SELECT DISTINCT ON (e.emp_no) e.emp_no, e.first_name, e.last_name, e.birth_date, de.from_date, de.to_date, ti.title
+INTO mentorship_eligibility
+FROM employees as e 
+INNER JOIN dept_emp as de 
+    ON (e.emp_no = de.emp_no)
+INNER JOIN titles as ti 
+    ON (e.emp_no = ti.emp_no)
+    WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+    AND (de.to_date = '9999-01-01')
+    ORDER BY e.emp_no;
+```
+
+To produce the following final table:
+
+![""](Photos/table4.PNG)
 
