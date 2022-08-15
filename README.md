@@ -10,5 +10,39 @@ Pewlett-Hackard will soon have a significant number of employees retiring at onc
 SELECT * FROM public.retirement_info 
 ```
 
-The following list of employees is our first result: 
+The following list of employees is our cleaned first result: 
+
+![""](Photos/table1.PNG)
+
+
+-- Next, we needed to determine the counts for each of the titles held by the upcoming retirees. First we created a table containing all employee titles named retirement_titles. Next, we used a DISTINCT-ON query to create a table of only unique employee titles called unique_titles. Finally, when we run:
+
+```
+-- Make the retiring_titles table
+SELECT COUNT(first_name), ut.title
+INTO retiring_titles
+FROM unique_titles as ut 
+GROUP BY (ut.title)
+ORDER BY COUNT(first_name) DESC;
+```
+
+The following table counting the number of employees that will be leaving by their titles is produced:
+
+![""](Photos/table2.PNG)
+
+
+-- Next, we needed to determine how many of PH's current (not retiring) employees are eligible for a mentorship program to replace lost labor. To do this we can first check how many employees are currently at PH by running:
+
+```
+-- Select CURRENT employees
+SELECT retirement_info.emp_no, retirement_info.first_name, retirement_info.last_name, dept_emp.to_date
+INTO current_emp 
+FROM retirement_info 
+    LEFT JOIN dept_emp
+        ON retirement_info.emp_no = dept_emp.emp_no
+        WHERE dept_emp.to_date = ('9999-01-01');
+```
+
+Which return the table:
+
 
