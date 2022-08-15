@@ -14,7 +14,6 @@ rt.last_name,
 rt.title
 INTO unique_titles
 FROM retirement_titles AS rt
-WHERE to_date = '9999-01-01'
 ORDER BY rt.emp_no ASC, rt.to_date DESC;
 
 -- Make the retiring_titles table
