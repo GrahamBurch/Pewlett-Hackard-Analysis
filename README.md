@@ -71,3 +71,18 @@ To produce the following final table:
 
 ![""](Photos/table4.PNG)
 
+## Summary & Conclusions
+
+1. There are 90,398 employees who will become eligible for retirement at PH. PH will need to replace:
+    > 29,414 senior engineers.
+    > 28,254 senior staff.
+    > 14,222 engineers.
+    > 12,243 staff.
+    > 4,502 technique leaders.
+    > 1,761 assistant engineers.
+    > 2 managers.
+
+
+2. At a balance of almost 100k employees becoming eligible for retirement and only 1,549 current employees eligible to become a mentor, recovering PH's losses completely would require on average around 59 apprenticeships per mentor, which is clearly unreasonable. As a result of this imbalance, the 'silver tsunami' will quite  likely bring significant decreases in short-run productivity with greater long-run setbacks imminent as well due to these labor losses being heavily concentrated in senior-level positions. 
+
+
