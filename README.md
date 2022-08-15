@@ -30,3 +30,19 @@ The following table counting the number of employees that will be leaving by the
 
 ![""](Photos/table2.PNG)
 
+
+-- Next, we needed to determine how many of PH's current (not retiring) employees are eligible for a mentorship program to replace lost labor. To do this we can first check how many employees are currently at PH by running:
+
+```
+-- Select CURRENT employees
+SELECT retirement_info.emp_no, retirement_info.first_name, retirement_info.last_name, dept_emp.to_date
+INTO current_emp 
+FROM retirement_info 
+    LEFT JOIN dept_emp
+        ON retirement_info.emp_no = dept_emp.emp_no
+        WHERE dept_emp.to_date = ('9999-01-01');
+```
+
+Which return the table:
+
+
